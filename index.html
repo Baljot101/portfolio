@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind configuration -->
+    <script>
+      setTimeout(() => {
+        tailwind.config = {
+          theme: {
+            extend: {
+              //   gridTemplateColumns: {
+              //     'auto': 'repeat(auto-fit, minmax(200px, 1fr))'
+              //   },
+              fontFamily: {
+                outfit: ["Outfit", "sans-serif"],
+                ovo: ["Ovo", "serif"],
+              },
+            },
+          },
+        };
+      }, 100);
+    </script>
+
+    <style>
+      /* Custom colors */
+      .hover\:bg-lightHover:hover {
+        background-color: #fcf4ff;
+      }
+      .hover\:bg-darkHover:hover {
+        background-color: #2a004a;
+      }
+      .bg-darkTheme {
+        background-color: #11001f;
+      }
+
+      /* Custom bpx shadows */
+      .shadow-black {
+        box-shadow: 4px 4px 0 #000;
+      }
+      .shadow-white {
+        box-shadow: 4px 4px 0 #fff;
+      }
+
+      /* Default: show light mode elements, hide dark mode elements */
+
+      .light-mode {
+        display: block;
+      }
+
+      .dark-mode {
+        display: none;
+      }
+
+      /* Default (Light Mode) - Only Needed if Not Already Set in HTML */
+      .side-menu {
+        background-color: #fffafc; /* bg-rose-50 */
+        color: black;
+      }
+
+      /* when dark mode is enabled */
+      .dark .light-mode {
+        display: none;
+      }
+
+      .dark .dark-mode {
+        display: block;
+      }
+
+      /* Dark mode Styling */
+      .dark {
+        background-color: #11001f;
+        color: white;
+      }
+
+      /* hide header background banner in dark mode */
+      .dark .header-banner {
+        display: none;
+      }
+
+      /* add border around menu and make background transparent */
+      .dark .menu-banner {
+        /* border: 1 px solid rgba(255, 255, 255, 0); */
+        border: 1px solid rgba(255, 255, 255, 0.5); /* Matching the contact button */
+        background: transparent;
+        border-radius: 9999px; /* Equivalent to Tailwind's 'rounded-full' */
+        padding: 0.75rem 3rem; /* Matches padding of px-12 py-3 */
+      }
+
+      .dark .side-menu {
+        background-color: #2a004a;
+        color: white;
+      }
+
+      /* Light Mode (Default Navbar Styling) */
+      .navbar {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.5
+        ); /* Equivalent to bg-white bg-opacity-50 */
+        backdrop-filter: blur(10px); /* Equivalent to backdrop-blur-lg */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Equivalent to shadow-sm */
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      /* Dark Mode Navbar Styling */
+      .dark .navbar {
+        background-color: rgba(17, 0, 31, 0.8); /* Equivalent to bg-darkTheme */
+        box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2); /* Equivalent to shadow-white/20 */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* Equivalent to dark:border-white/50 */
+      }
+
+      .dark .contact-btn {
+        border-color: transparent;
+      }
+
+      .dark .resume-btn {
+        color: black;
+      }
+
+      .dark .abt-btn {
+        /* dark:border-white dark:hover:shadow-white dark:hover-bg-darkHover/50 */
+        border-color: white;
+        background-color: transparent;
+        transition: all 0.3s ease;
+      }
+
+      .dark .abt-btn:hover {
+        box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.8);
+        background-color: #2a004a;
+      }
+
+      .dark .abt-btn h3 {
+        color: white;
+      }
+
+      .dark .abt-btn p {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .dark .text80 {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .dark .service-btn {
+        /* dark:hover:bg-darkHover dark:hover:shadow-white */
+        background-color: transparent;
+        transition: all 0.3s ease;
+      }
+
+      .dark .service-btn:hover {
+        box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.8);
+        background-color: #2a004a;
+      }
+
+      .dark .service-btn h3 {
+        color: white;
+      }
+
+      .dark .service-btn p {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .dark .work-btn {
+        color: black;
+      }
+
+      .dark .work-show-more {
+        /* dark:text-white dark:border-white dark:hover:bg-[#2a004a] */
+        color: white;
+        border-color: white;
+        background-color: transparent;
+        transition: all 0.3s ease;
+      }
+
+      .dark .work-show-more:hover {
+        background-color: #2a004a;
+      }
+
+      .dark .contact-bg {
+        background: none !important;
+      }
+
+      .contact-show-more {
+        background-color: black;
+        color: white;
+        border: 0.5px solid transparent; /* Ensure border is transparent by default */
+        transition: all 0.3s ease;
+      }
+
+      .dark .contact-show-more {
+        /* dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover */
+        color: white;
+        border-color: white;
+        background-color: transparent;
+        transition: all 0.3s ease;
+      }
+
+      .dark .contact-show-more:hover {
+        background-color: #2a004a;
+      }
+
+      .contact-section {
+        padding: 5% 12%;
+        line-height: 1.5;
+      }
+
+      .contact-form {
+        /* dark:bg-[#2a004a]/30 dark:border-white/90 */
+        background-color: white;
+      }
+
+      .dark .contact-form {
+        background-color: rgba(42, 0, 74, 0.3);
+        border-color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* When scrolling
+      .navbar.scrolled {
+        background-color: rgba(255, 255, 255, 0.7);
+      }
+
+      .dark .navbar.scrolled {
+        background-color: #11001f;
+        box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
+      } */
+    </style>
+
+    <!-- Google Fonts -->
+    <script>
+      src = "./tailwind.config.js";
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="overflow-x-hidden font-outfit leading-8 dark:bg-darkTheme dark:text-white"
+    style="font-family: 'Outfit', sans-serif"
+  >
+    <div
+      class="fixed top-0 left-1/2 w-11/12 -z-10 translate-y-[-80%] -translate-x-1/2 header-banner"
+    >
+      <img
+        src="./images/header-bg-color.png"
+        alt=""
+        class="w-full"
+        style="
+          mask-image: linear-gradient(
+              to right,
+              transparent,
+              black 15%,
+              black 85%,
+              transparent
+            ),
+            linear-gradient(to top, transparent, black 10%);
+          -webkit-mask-image: linear-gradient(
+              to right,
+              transparent,
+              black 15%,
+              black 85%,
+              transparent
+            ),
+            linear-gradient(to top, transparent, black 15%);
+          -webkit-mask-composite: multiply;
+          mask-composite: intersect;
+        "
+      />
+    </div>
+    <nav
+      class="navbar w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 font-ovo"
+      style="font-family: 'Ovo', serif"
+    >
+      <img
+        src="./images/baljot-logo.png"
+        alt="Logo"
+        class="w-40 cursor-pointer mr-14"
+      />
+      <ul
+        class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 menu-banner"
+      >
+        <li><a href="#top">Home</a></li>
+        <li><a href="#about">About me</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">My Work</a></li>
+        <li><a href="#contact">Contact me</a></li>
+      </ul>
+      <div class="flex items-center gap-4">
+        <button onclick="toggleTheme()">
+          <img
+            src="./images/moon-icon.png"
+            alt="Toggle Dark Mode"
+            class="w-6 light-mode"
+          />
+          <img
+            src="./images/sun-icon.png"
+            alt="Toggle Light Mode"
+            class="w-6 dark-mode"
+          />
+        </button>
+
+        <a
+          href="#contact"
+          class="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4"
+          style="font-family: 'Ovo', serif"
+        >
+          Contact
+          <img src="./images/arrow-icon.png" alt="" class="w-4 light-mode" />
+          <img
+            src="./images/arrow-icon-dark.png"
+            alt=""
+            class="w-4 dark-mode"
+          />
+        </a>
+
+        <button class="block md:hidden ml-3" onclick="openMenu()">
+          <img src="./images/menu-black.png" alt="" class="w-6 light-mode" />
+          <img src="./images/menu-dark.png" alt="" class="w-6 dark-mode" />
+        </button>
+      </div>
+
+      <!-- ----- mobile menu ----- -->
+      <ul
+        id="sideMenu"
+        class="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 side-menu"
+        style="font-family: 'Ovo', serif"
+      >
+        <div class="absolute right-6 top-6" onclick="closeMenu()">
+          <img
+            src="./images/close-black.png"
+            alt=""
+            class="w-5 cursor-pointer light-mode"
+          />
+          <img
+            src="./images/close-white.png"
+            alt=""
+            class="w-5 cursor-pointer dark-mode"
+          />
+        </div>
+
+        <li><a href="#top" onclick="closeMenu()">Home</a></li>
+        <li><a href="#about" onclick="closeMenu()">About me</a></li>
+        <li><a href="#services" onclick="closeMenu()">Services</a></li>
+        <li><a href="#work" onclick="closeMenu()">My Work</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact me</a></li>
+      </ul>
+    </nav>
+
+    <!-- -----header------- -->
+
+    <div
+      class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4"
+    >
+      <img src="./images/profile-img.png" alt="" class="rounded-full w-32" />
+      <h3
+        class="flex items-center gap-2 text-xl md:text-2xl mb-3"
+        style="font-family: 'Ovo', serif"
+      >
+        Hi! I'm Baljot Kaur
+        <img src="./images/hand-icon.png" alt="" class="w-6" />
+      </h3>
+      <h1
+        class="text-3xl sm:text-6xl lg:text-[66px]"
+        style="font-family: 'Ovo', serif"
+      >
+        Software engineer specializing in data and development.
+      </h1>
+      <p class="max-w-2xl mx-auto" style="font-family: 'Ovo', serif">
+        I am a software engineer from Chattanooga, TN with expertise in data
+        analytics, front-end development, and continuous learning through
+        certifications.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+        <a
+          href="#contact"
+          class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-[#ededed] flex items-center gap-2 contact-btn"
+          >contact me
+          <img src="./images/right-arrow-dark.png" alt="" class="w-4"
+        /></a>
+
+        <a
+          href="./images/Resume.docx"
+          download
+          class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white resume-btn"
+          >my resume <img src="./images/download.png" alt="" class="w-4"
+        /></a>
+      </div>
+    </div>
+
+    <!-- -----about me ------- -->
+    <div id="about" class="w-full px-[12%] py-10 scroll-mt-20">
+      <h4 class="text-center mb-2 text-lg" style="font-family: 'Ovo', serif">
+        Introduction
+      </h4>
+      <h2 class="text-center text-5xl" style="font-family: 'Ovo', serif">
+        About me
+      </h2>
+
+      <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
+        <div class="max-w-max mx-auto relative">
+          <img
+            src="./images/grad-pic-2.jpg"
+            alt=""
+            class="w-64 sm:w-80 rounded-3xl max-w-none"
+          />
+
+          <div
+            class="bg-white w-1/2 aspect-square absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-[0_4px_55px_rgba(149,0,162,0.15)] flex items-center justify-center"
+          >
+            <!-- need to add images, empty images right now, added tailwind code below to hardcode animation speed -->
+            <img
+              src="./images/"
+              alt=""
+              class="w-full animate-spin-slow spin 6s linear infinite"
+            />
+            <img
+              src="./images/"
+              alt=""
+              class="w-1/4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            />
+          </div>
+        </div>
+        <div>
+          <p class="mb-10 max-x-2xl" style="font-family: 'Ovo', serif">
+            Hi, I’m Baljot Kaur, a Software Engineer with a strong foundation in
+            data analytics and front-end development. I’m passionate about
+            creating impactful solutions through code. Outside of coding, I
+            enjoy exploring nature, solving problems creatively, and diving into
+            new challenges. I’m excited to apply my skills and knowledge to
+            meaningful projects that make a difference.
+          </p>
+
+          <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
+            <li
+              class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black abt-btn"
+            >
+              <img
+                src="./images/code-icon.png"
+                alt=""
+                class="w-7 mt-3 light-mode"
+              />
+              <img
+                src="./images/code-icon-dark.png"
+                alt=""
+                class="w-7 mt-3 dark-mode"
+              />
+
+              <h3 class="my-4 font-semibold text-gray-700">Languages</h3>
+              <p class="text-gray-600 text-sm">
+                Python, SQL, R, HTML, Javascript React Js, CSS
+              </p>
+            </li>
+
+            <li
+              class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black abt-btn"
+            >
+              <img
+                src="./images/edu-icon.png"
+                alt=""
+                class="w-7 mt-3 light-mode"
+              />
+              <img
+                src="./images/edu-icon-dark.png"
+                alt=""
+                class="w-7 mt-3 dark-mode"
+              />
+              <h3 class="my-4 font-semibold text-gray-700">Education</h3>
+              <p class="text-gray-600 text-sm">
+                Bachelors in Business Analytics with a minor in Data Science
+              </p>
+            </li>
+
+            <li
+              class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black abt-btn"
+            >
+              <img
+                src="./images/project-icon.png"
+                alt=""
+                class="w-7 mt-3 light light-mode"
+              />
+              <img
+                src="./images/project-icon-dark.png"
+                alt=""
+                class="w-7 mt-3 dark-mode"
+              />
+              <h3 class="my-4 font-semibold text-gray-700">Projects</h3>
+              <p class="text-gray-600 text-sm">
+                Projects that showcase my skills, including building this
+                website
+              </p>
+            </li>
+          </ul>
+          <h4
+            class="my-6 text-gray-700 text80"
+            style="font-family: 'Ovo', serif"
+          >
+            Tools I use
+          </h4>
+
+          <ul class="flex items-center gap-3 sm:gap-5">
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img src="./images/vscode.png" alt="" class="w-5 sm:w-7" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img src="./images/tableau-icon.png" alt="" class="w-5 sm:w-7" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img src="./images/python-icon.png" alt="" class="w-5 sm:w-7" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img src="./images/sql.png" alt="" class="w-5 sm:w-7" />
+            </li>
+            <li
+              class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500"
+            >
+              <img
+                src="./images/bootstrap-icon.png"
+                alt=""
+                class="w-5 sm:w-7"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ------- services ------- -->
+
+    <div id="services" class="w-full px-[12%] py-10 scroll-mt-20">
+      <h4 class="text-center mb-2 text-lg" style="font-family: 'Ovo', serif">
+        What I offer
+      </h4>
+      <h2 class="text-center text-5xl" style="font-family: 'Ovo', serif">
+        My services
+      </h2>
+      <p
+        class="text-center max-w-2xl mx-auto mt-5 mb-12"
+        style="font-family: 'Ovo', serif"
+      >
+        Add description. I am a data analyst transitioning into data science and
+        software development. An aspiring full-stack developer with data
+        analytics focus.
+      </p>
+
+      <div
+        class="grid [grid-template-columns:repeat(auto-fit,minmax(200px,1fr))] gap-6 my-10"
+      >
+        <div
+          class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 service-btn"
+        >
+          <img src="./images/project-icon.png" alt="" class="w-10 light-mode" />
+          <img
+            src="./images/project-icon-dark.png"
+            alt=""
+            class="w-10 dark-mode"
+          />
+          <h3 class="text-lg my-4 text-gray-700">Web Design</h3>
+          <p class="text-sm text-gray-600 leading-5">
+            Web development is the process of building, programming...
+          </p>
+          <a href="" class="flex items-center gap-2 text-sm mt-5"
+            >Read more
+            <img src="./images/right-arrow.png" alt="" class="w-4 light-mode" />
+            <img
+              src="./images/right-arrow-dark.png"
+              alt=""
+              class="w-4 dark-mode"
+            />
+          </a>
+        </div>
+
+        <div
+          class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 service-btn"
+        >
+          <img src="./images/project-icon.png" alt="" class="w-10 light-mode" />
+          <img
+            src="./images/project-icon-dark.png"
+            alt=""
+            class="w-10 dark-mode"
+          />
+          <h3 class="text-lg my-4 text-gray-700">Data Analysis</h3>
+          <p class="text-sm text-gray-600 leading-5">
+            Web development is the process of building, programming...
+          </p>
+          <a href="" class="flex items-center gap-2 text-sm mt-5"
+            >Read more
+            <img src="./images/right-arrow.png" alt="" class="w-4 light-mode" />
+            <img
+              src="./images/right-arrow-dark.png"
+              alt=""
+              class="w-4 dark-mode"
+          /></a>
+        </div>
+
+        <div
+          class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 service-btn"
+        >
+          <img src="./images/project-icon.png" alt="" class="w-10 light-mode" />
+          <img
+            src="./images/project-icon-dark.png"
+            alt=""
+            class="w-10 dark-mode"
+          />
+          <h3 class="text-lg my-4 text-gray-700">Data Mining</h3>
+          <p class="text-sm text-gray-600 leading-5">
+            Web development is the process of building, programming...
+          </p>
+          <a href="" class="flex items-center gap-2 text-sm mt-5"
+            >Read more
+            <img src="./images/right-arrow.png" alt="" class="w-4 light-mode" />
+            <img
+              src="./images/right-arrow-dark.png"
+              alt=""
+              class="w-4 dark-mode"
+          /></a>
+        </div>
+
+        <div
+          class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 service-btn"
+        >
+          <img src="./images/project-icon.png" alt="" class="w-10 light-mode" />
+          <img
+            src="./images/project-icon-dark.png"
+            alt=""
+            class="w-10 dark-mode"
+          />
+          <h3 class="text-lg my-4 text-gray-700">Consulting</h3>
+          <p class="text-sm text-gray-600 leading-5">
+            Web development is the process of building, programming...
+          </p>
+          <a href="" class="flex items-center gap-2 text-sm mt-5"
+            >Read more
+            <img src="./images/right-arrow.png" alt="" class="w-4 light-mode" />
+            <img
+              src="./images/right-arrow-dark.png"
+              alt=""
+              class="w-4 dark-mode"
+          /></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- -------my work------- -->
+    <div id="work" class="w-full px-[12%] py-10 scroll-mt-20">
+      <h4 class="text-center mb-2 text-lg" style="font-family: 'Ovo', serif">
+        My portfolio
+      </h4>
+      <h2 class="text-center text-5xl" style="font-family: 'Ovo', serif">
+        My latest work
+      </h2>
+      <p
+        class="text-center max-w-2xl mx-auto mt-5 mb-12"
+        style="font-family: 'Ovo', serif"
+      >
+        Add description. Welcome to my portfolio! Explore a collection of
+        projects showcasing my diverse skill set in full-stack development.
+      </p>
+
+      <div
+        class="grid [grid-template-columns:repeat(auto-fit,minmax(200px,1fr))] mt-10 gap-5 work-btn"
+      >
+        <div
+          class="aspect-square bg-[url('./images/work-01.jpg')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
+        >
+          <div
+            class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
+          >
+            <div>
+              <h2 class="font-semibold">Frontend project</h2>
+              <p class="text-sm text-gray-700">Web Design</p>
+            </div>
+            <div
+              class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
+            >
+              <img src="./images/send-icon.png" alt="" class="w-5" />
+            </div>
+          </div>
+        </div>
+        <div
+          class="aspect-square bg-[url('./images/work-2.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
+        >
+          <div
+            class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
+          >
+            <div>
+              <h2 class="font-semibold">Weather API</h2>
+              <p class="text-sm text-gray-700">Full-Stack</p>
+            </div>
+            <div
+              class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
+            >
+              <img src="./images/send-icon.png" alt="" class="w-5" />
+            </div>
+          </div>
+        </div>
+        <div
+          class="aspect-square bg-[url('./images/work-1.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
+        >
+          <div
+            class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
+          >
+            <div>
+              <h2 class="font-semibold">Amazon Trends</h2>
+              <p class="text-sm text-gray-700">Data Science</p>
+            </div>
+            <div
+              class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
+            >
+              <img src="./images/send-icon.png" alt="" class="w-5" />
+            </div>
+          </div>
+        </div>
+        <div
+          class="aspect-square bg-[url('./images/work-3.png')] bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
+        >
+          <div
+            class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7"
+          >
+            <div>
+              <h2 class="font-semibold">Market Basket</h2>
+              <p class="text-sm text-gray-700">Data Analytics</p>
+            </div>
+            <div
+              class="border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition"
+            >
+              <img src="./images/send-icon.png" alt="" class="w-5" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <a
+        href=""
+        class="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover work-show-more"
+      >
+        Show more
+        <img
+          src="./images/right-arrow-bold.png"
+          alt=""
+          class="w-4 light-mode"
+        />
+        <img
+          src="./images/right-arrow-bold-dark.png"
+          alt=""
+          class="w-4 dark-mode"
+        />
+      </a>
+    </div>
+
+    <!-- ------ contact ------- -->
+    <!-- don't have image "footer-bg-color" will use header-bg-color until then -->
+    <div
+      id="contact"
+      class="w-full px-[10%] py-16 scroll-mt-20 contact-bg contact-section"
+      style="
+        background:
+        /* Top gradient: fades from opaque white at the very top to transparent */ linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.4),
+            rgba(255, 255, 255, 0)
+          ),
+          /* Bottom gradient: fades from opaque white at the very bottom to transparent */
+            linear-gradient(
+              to top,
+              rgba(255, 255, 255, 0.4),
+              rgba(255, 255, 255, 0)
+            ),
+          radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0) 20%,
+            rgba(255, 255, 255, 0.8) 90%
+          ),
+          url('./images/header-bg-color.png') center/90% auto no-repeat;
+        background-blend-mode: normal;
+      "
+    >
+      <h4 class="text-center mb-2 text-lg" style="font-family: 'Ovo', serif">
+        Connect with me
+      </h4>
+      <h2 class="text-center text-5xl" style="font-family: 'Ovo', serif">
+        Get in touch
+      </h2>
+      <p
+        class="text-center max-w-2xl mx-auto mt-5 mb-12"
+        style="font-family: 'Ovo', serif"
+      >
+        Add description. I would love to hear from you! If you have any
+        questions, comments, or feedack, please use the form below.
+      </p>
+      <form
+        method="POST"
+        action="https://api.web3forms.com/submit"
+        class="max-w-2xl mx-auto"
+      >
+        <input
+          type="hidden"
+          name="access_key"
+          value="2d83f6ef-5607-4f52-abfb-ed5dc8a184df"
+        />
+        <div
+          class="grid [grid-template-columns:repeat(auto-fit,minmax(200px,1fr))] gap-6 mt-10 mb-8"
+        >
+          <input
+            type="text"
+            placeholder="Enter your name"
+            class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white contact-form"
+            required
+            name="name"
+          />
+
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white contact-form"
+            required
+            name="email"
+          />
+        </div>
+        <textarea
+          rows="6"
+          placeholder="Enter your message"
+          class="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 contact-form"
+          required
+          name="message"
+        ></textarea>
+        <button
+          class="py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 contact-show-more"
+        >
+          Submit now
+          <img src="./images/right-arrow-dark.png" alt="" class="w-4" />
+        </button>
+      </form>
+    </div>
+
+    <!-- ------ footer ------- -->
+    <div class="mt-20">
+      <div class="text-center">
+        <img src="./images/baljot-logo.png" alt="" class="w-36 mx-auto mb-2" />
+        <div class="w-max flex items-center gap-2 mx-auto">
+          <img src="./images/mail-icon.png" alt="" class="w-6 light-mode" />
+          <img src="./images/mail-icon-dark.png" alt="" class="w-6 dark-mode" />
+          baljot101@gmail.com
+        </div>
+      </div>
+      <div
+        class="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6"
+      >
+        <p>© 2025 Baljot Kaur. All rights reserved.</p>
+        <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
+          <li><a href="https://linkedin.com/baljot">LinkedIn</a></li>
+          <li><a href="https://linkedin.com/baljot">GitHub</a></li>
+          <li><a href="https://linkedin.com/baljot">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

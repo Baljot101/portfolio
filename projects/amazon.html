@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazon Trends - Project</title>
+    <link rel="stylesheet" href="../style.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Uses main site CSS -->
+  </head>
+  <body class="projects-body">
+    <div class="header-banner"></div>
+    <nav class="projects-navbar">
+      <a href="../index.html" class="projects-back-link">← Back to Projects</a>
+      <button onclick="toggleTheme()" class="sun-moon-icon">
+        <img
+          src="../images/moon-icon.png"
+          alt="Toggle Dark Mode"
+          class="light-mode"
+        />
+        <img
+          src="../images/sun-icon.png"
+          alt="Toggle Light Mode"
+          class="dark-mode"
+        />
+      </button>
+    </nav>
+
+    <h1 class="projects-title">Amazon Search Bias: A Data-Driven Look</h1>
+
+    <!-- Project Content -->
+    <main class="projects-content">
+      <!-- Project Overview -->
+      <section style="margin-bottom: 2.5rem">
+        <h2 class="projects-content-title">Project Overview</h2>
+        <p class="projects-content-info">
+          This project explores Amazon’s self-preferencing practices — how the
+          platform may rank its own products, such as Amazon Basics, higher in
+          search results than third-party competitors. Using a dataset collected
+          via browser extensions from a panel of real users, the analysis
+          investigates the spatial placement of products, the influence of
+          branding, and the association between Prime eligibility and targeted
+          brand promotion. This study is rooted in concerns around algorithmic
+          bias and market fairness, especially in powerful e-commerce platforms
+          like Amazon.
+        </p>
+      </section>
+
+      <!-- PDF Embed -->
+      <section style="margin-bottom: 2.5rem">
+        <h2 class="projects-content-title">View Full Report</h2>
+        <div class="projects-pdf-embed">
+          <iframe
+            src="amazon-trends.pdf"
+            width="100%"
+            height="100%"
+            style="border: none; min-height: 600px; max-height: 800px"
+          ></iframe>
+        </div>
+      </section>
+
+      <!-- Key Findings -->
+      <section style="margin-bottom: 2.5rem">
+        <h2 class="projects-content-title">Key Findings</h2>
+        <ul class="projects-key-findings">
+          <li>
+            Amazon ranks its own products more prominently than major brand or
+            third-party items, especially in premium search result positions.
+          </li>
+          <li>
+            There is a strong correlation between spatial placement (top-left of
+            screen) and likelihood of being an Amazon-owned product — with a
+            Pearson coefficient of 0.85.
+          </li>
+          <li>
+            Products associated with Amazon Prime and targeted brands are
+            significantly more likely to appear higher in search results, as
+            confirmed by a chi-square test (p < 0.001).
+          </li>
+          <li>
+            Amazon-branded products are cheaper, receive more reviews, and have
+            higher average ratings than third-party items — possibly skewing
+            perceived product value.
+          </li>
+
+          <li>
+            While correlation doesn’t confirm causation, the pattern of
+            recurrent preferential placements across multiple variables suggests
+            algorithmic favoritism.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Jupyter Notebook Embed -->
+      <section style="margin-bottom: 2.5rem">
+        <h2 class="projects-content-title">Jupyter Notebook Analysis</h2>
+        <p class="projects-content-info">
+          Below is an interactive view of the Jupyter Notebook analysis for this
+          project.
+        </p>
+        <div class="projects-pdf-embed">
+          <iframe
+            src="Amazon_stats.html"
+            width="100%"
+            height="100%"
+            style="border: none; min-height: 600px; max-height: 800px"
+          ></iframe>
+        </div>
+      </section>
+
+      <!-- Download PDF -->
+      <section>
+        <h2 class="projects-content-title">Download Report</h2>
+        <p class="projects-content-info">
+          Click the button below to download the full pdf.
+        </p>
+        <a
+          href="amazon-trends.pdf"
+          target="_blank"
+          class="projects-download-btn"
+        >
+          Download Full Report
+        </a>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-box">
+        <img src="../images/baljot-logo.png" alt="" class="footer-logo" />
+        <div class="footer-email">
+          <img
+            src="../images/mail-icon.png"
+            alt=""
+            class="light-mode"
+            style="width: 1.5rem"
+          />
+          <img
+            src="../images/mail-icon-dark.png"
+            alt=""
+            class="dark-mode"
+            style="width: 1.5rem"
+          />
+          baljot101@gmail.com
+        </div>
+      </div>
+      <div class="footer-banner">
+        <p>© 2025 Baljot Kaur. All rights reserved.</p>
+        <ul class="footer-banner-list">
+          <li>
+            <a href="https://linkedin.com/in/baljot" target="_blank"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/baljot" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

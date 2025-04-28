@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather API - Project</title>
+    <link rel="stylesheet" href="../style.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="projects-body">
+    <!-- Navbar -->
+    <nav class="projects-navbar">
+      <a href="../index.html" class="projects-back-link">← Back to Portfolio</a>
+      <button onclick="toggleTheme()" class="sun-moon-icon">
+        <img
+          src="../images/moon-icon.png"
+          alt="Toggle Dark Mode"
+          class="light-mode"
+        />
+        <img
+          src="../images/sun-icon.png"
+          alt="Toggle Light Mode"
+          class="dark-mode"
+        />
+      </button>
+    </nav>
+
+    <h1 class="projects-title">Weather API</h1>
+
+    <!-- Project Content -->
+    <main class="projects-content">
+      <!-- Live Weather App Embed -->
+      <section style="margin-bottom: 2.5rem">
+        <h2 class="projects-content-title">Live Weather App</h2>
+        <div
+          class="projects-pdf-embed"
+          style="min-height: 600px; max-height: 800px"
+        >
+          <iframe
+            src="https://baljot101.github.io/weather-app/"
+            width="100%"
+            height="100%"
+            style="border: none"
+          ></iframe>
+        </div>
+      </section>
+
+      <!-- Code Link -->
+      <section style="margin-bottom: 2.5rem">
+        <h2 class="projects-content-title">Weather.jsx Code</h2>
+        <p class="projects-content-info">
+          Click the button below to see the code for the weather API.
+        </p>
+        <a
+          href="https://github.com/Baljot101/weather-app/blob/main/src/components/Weather.jsx"
+          target="_blank"
+          class="projects-download-btn"
+        >
+          View Full Weather.jsx Code
+        </a>
+      </section>
+
+      <!-- Tutorial Credit -->
+      <section>
+        <h2 class="projects-content-title">Tutorial Credit</h2>
+        <p>
+          This project was inspired by and built from this tutorial:
+          <a
+            href="https://youtu.be/zs1Nq2s_uy4?si=JEUDApL1xGWp1TkW"
+            target="_blank"
+            class="download-button"
+            >View Tutorial</a
+          >
+        </p>
+        <p>
+          I built on the tutorial by adding additional features such as [INSERT
+          HERE what you customized] to make the app my own.
+        </p>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-box">
+        <img src="../images/baljot-logo.png" alt="" class="footer-logo" />
+        <div class="footer-email">
+          <img
+            src="../images/mail-icon.png"
+            alt=""
+            class="light-mode"
+            style="width: 1.5rem"
+          />
+          <img
+            src="../images/mail-icon-dark.png"
+            alt=""
+            class="dark-mode"
+            style="width: 1.5rem"
+          />
+          baljot101@gmail.com
+        </div>
+      </div>
+      <div class="footer-banner">
+        <p>© 2025 Baljot Kaur. All rights reserved.</p>
+        <ul class="footer-banner-list">
+          <li>
+            <a href="https://linkedin.com/in/baljot" target="_blank"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/baljot" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

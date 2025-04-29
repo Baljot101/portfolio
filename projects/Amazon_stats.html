@@ -14835,7 +14835,32 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Exploratory-Data-Analysis-(EDA)">Exploratory Data Analysis (EDA)<a class="anchor-link" href="#Exploratory-Data-Analysis-(EDA)">&#182;</a></h2>
+<h2 id="Feature-Engineering">Feature Engineering<a class="anchor-link" href="#Feature-Engineering">&#182;</a></h2><p>Several new columns were created to support the analysis:</p>
+<ul>
+<li><p><strong><code>date_created_day</code></strong>: Converted the original date strings into <code>datetime</code> format to enable time-based grouping and visualization.</p>
+</li>
+<li><p><strong><code>amazon_brand_count</code></strong>: Added a binary indicator to count whether a product was affiliated with an Amazon brand.</p>
+</li>
+<li><p><strong><code>amazon_rank_value</code></strong>: Extracted the rank values for Amazon-branded products to calculate their average search ranking over time.</p>
+</li>
+<li><p><strong><code>targeted_brand_count</code></strong>: Created a count for targeted brands appearing in search results to track their visibility trends.</p>
+</li>
+<li><p><strong><code>major_brand_count</code></strong>: Established a binary marker identifying whether a product belonged to a major brand.</p>
+</li>
+</ul>
+<p>These features were used throughout the exploratory analysis to better understand brand presence, ranking behaviors, and potential spatial biases in search result placements.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Exploratory-Data-Analysis-(EDA)">Exploratory Data Analysis (EDA)<a class="anchor-link" href="#Exploratory-Data-Analysis-(EDA)">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -15396,6 +15421,19 @@ class="
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>This analysis explored brand visibility patterns within Amazon search results, focusing on Amazon-branded and major-branded products. Key trends were identified by comparing daily brand frequency, average ranking position, and overall brand prevalence. The dataset revealed that Amazon's own brands consistently occupied higher-ranking positions and appeared more frequently than major competitors. These patterns suggest potential brand favoritism in search result visibility, raising important considerations around competition and platform neutrality.</p>
+<p>Further analysis with expanded datasets or additional metadata (e.g., click-through rates, category filters) could deepen these insights.</p>
+
+</div>
+</div>
+</div>
 </div>
 </body>
 

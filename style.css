@@ -27,6 +27,20 @@ body {
   color: white;
 }
 
+.banner {
+  background-color: #ffeeba; /* Light yellow background */
+  color: #3a2e2a; /* Dark yellow/brown text */
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-family: "Ovo", serif; /* Or your website font */
+  font-size: 16px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
 /* HEADER BACKGROUND BANNER */
 .header-banner {
   position: fixed;
@@ -81,6 +95,7 @@ body {
   box-shadow: none;
   border-bottom: none;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 2rem;
 }
 
 .dark .navbar {
@@ -668,6 +683,24 @@ body {
   border-radius: 0.5rem;
   position: relative;
   cursor: pointer;
+}
+
+.mywork-project.inactive {
+  opacity: 0.5;
+  filter: grayscale(100%);
+  pointer-events: none;
+  position: relative;
+}
+
+.coming-soon {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  font-size: 1rem;
+  border-radius: 4px;
 }
 
 .mywork-project-box {

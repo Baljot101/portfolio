@@ -24,13 +24,16 @@
     <div class="header-banner">
       <img src="./images/header-bg-color.png" alt="banner background color" />
     </div>
+    <div class="banner">
+      Website under construction — thank you for your understanding!
+    </div>
     <nav class="navbar">
       <img src="./images/baljot-logo.png" alt="Logo" class="logo" />
       <ul class="menu">
         <li><a href="#top">Home</a></li>
         <li><a href="#about">About me</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#work">My Work</a></li>
+        <li><a href="#work">Projects</a></li>
         <li><a href="#contact">Contact me</a></li>
       </ul>
       <div class="nav-actions">
@@ -91,14 +94,15 @@
     <div class="header">
       <img src="./images/profile-img.png" alt="" class="header-img" />
       <h3>
-        Hi! I'm Baljot Kaur
+        Hi, I'm Baljot!
         <img src="./images/hand-icon.png" alt="" style="width: 1.5rem" />
       </h3>
-      <h1>Software engineer specializing in data and development.</h1>
+      <h1>Data-Focused Developer</h1>
       <p class="header-paragraph">
-        I am a software engineer from Chattanooga, TN with expertise in data
-        analytics, front-end development, and continuous learning through
-        certifications.
+        I'm a developer with a background in data analytics, front-end
+        development, and API integration. I specialize in building clean,
+        user-centered solutions that combine technical depth with practical
+        impact.
       </p>
 
       <div class="header-buttons">
@@ -106,7 +110,7 @@
           >contact me <img src="./images/right-arrow.png" alt="" class="w-4"
         /></a>
 
-        <a href="./images/Resume.docx" download class="header-resume-btn"
+        <a href="./images/Resume.pdf" download class="header-resume-btn"
           >my resume <img src="./images/download.png" alt="" class="w-4"
         /></a>
       </div>
@@ -123,12 +127,12 @@
         </div>
         <div>
           <p class="abt-body-paragraph">
-            Hi, I’m Baljot Kaur, a Software Engineer with a strong foundation in
-            data analytics and front-end development. I’m passionate about
-            creating impactful solutions through code. Outside of coding, I
-            enjoy exploring nature, solving problems creatively, and diving into
-            new challenges. I’m excited to apply my skills and knowledge to
-            meaningful projects that make a difference.
+            Hi, I’m Baljot Kaur, a developer with a strong foundation in data
+            analytics, front-end development, and API integration. I’m
+            passionate about building clean, user-focused solutions and
+            continuously expanding my technical skills. Outside of work, you'll
+            usually find me exploring the outdoors or diving into new creative
+            challenges.
           </p>
 
           <ul class="abt-body-boxes">
@@ -216,35 +220,32 @@
       <h4>What I offer</h4>
       <h2>My services</h2>
       <p class="ser-intro">
-        Add description. I am a data analyst transitioning into data science and
-        software development. An aspiring full-stack developer with data
-        analytics focus.
+        I create data-driven solutions through front-end development, data
+        analytics, and API integration. My work focuses on making information
+        accessible, usable, and impactful through thoughtful design and code.
       </p>
 
       <div class="ser-boxes">
-        <div class="ser-box">
+        <div class="ser-box" onclick="toggleMore(this)">
           <img src="./images/project-icon.png" alt="" class="w-10 light-mode" />
-          <img
-            src="./images/project-icon-dark.png"
-            alt=""
-            class="w-10 dark-mode"
-          />
-          <h3 class="ser-box-title">Web Design</h3>
+          <img src="./images/project-icon-dark.png" class="w-10 dark-mode" />
+          <h3 class="ser-box-title">Front-End Development</h3>
           <p class="ser-box-info">
-            Web development is the process of building, programming...
+            Designing and building responsive, user-friendly websites with
+            <span class="dots">...</span>
+            <span class="more-text" style="display: none">
+              a focus on clean design, usability, and performance.
+            </span>
           </p>
-          <a href="" class="ser-box-link"
-            >Read more
+
+          <div class="ser-box-link">
+            Read more
             <img src="./images/right-arrow.png" alt="" class="w-4 light-mode" />
-            <img
-              src="./images/right-arrow-dark.png"
-              alt=""
-              class="w-4 dark-mode"
-            />
-          </a>
+            <img src="./images/right-arrow-dark.png" class="w-4 dark-mode" />
+          </div>
         </div>
 
-        <div class="ser-box">
+        <div class="ser-box" onclick="toggleMore(this)">
           <img src="./images/project-icon.png" alt="" class="w-10 light-mode" />
           <img
             src="./images/project-icon-dark.png"
@@ -253,58 +254,56 @@
           />
           <h3 class="ser-box-title">Data Analysis</h3>
           <p class="ser-box-info">
-            Web development is the process of building, programming...
+            Analyzing datasets to uncover trends, generate insights, and
+            <span class="dots">...</span>
+            <span class="more-text" style="display: none">
+              support smarter business decisions through clean, practical
+              reporting.
+            </span>
           </p>
-          <a href="" class="ser-box-link"
-            >Read more
+          <div class="ser-box-link">
+            Read more
             <img src="./images/right-arrow.png" alt="" class="w-4 light-mode" />
-            <img
-              src="./images/right-arrow-dark.png"
-              alt=""
-              class="w-4 dark-mode"
-          /></a>
+            <img src="./images/right-arrow-dark.png" class="w-4 dark-mode" />
+          </div>
         </div>
 
-        <div class="ser-box">
+        <div class="ser-box" onclick="toggleMore(this)">
           <img src="./images/project-icon.png" alt="" class="w-10 light-mode" />
-          <img
-            src="./images/project-icon-dark.png"
-            alt=""
-            class="w-10 dark-mode"
-          />
-          <h3 class="ser-box-title">Data Mining</h3>
+          <img src="./images/project-icon-dark.png" class="w-10 dark-mode" />
+          <h3 class="ser-box-title">API Integration</h3>
           <p class="ser-box-info">
-            Web development is the process of building, programming...
+            Building dynamic applications by connecting
+            <span class="dots">...</span>
+            <span class="more-text" style="display: none">
+              front-end interfaces to external APIs, ensuring seamless data flow
+              and real-time functionality.
+            </span>
           </p>
-          <a href="" class="ser-box-link"
-            >Read more
+          <div class="ser-box-link">
+            Read more
             <img src="./images/right-arrow.png" alt="" class="w-4 light-mode" />
-            <img
-              src="./images/right-arrow-dark.png"
-              alt=""
-              class="w-4 dark-mode"
-          /></a>
+            <img src="./images/right-arrow-dark.png" class="w-4 dark-mode" />
+          </div>
         </div>
 
-        <div class="ser-box">
+        <div class="ser-box" onclick="toggleMore(this)">
           <img src="./images/project-icon.png" alt="" class="w-10 light-mode" />
-          <img
-            src="./images/project-icon-dark.png"
-            alt=""
-            class="w-10 dark-mode"
-          />
-          <h3 class="ser-box-title">Consulting</h3>
+          <img src="./images/project-icon-dark.png" class="w-10 dark-mode" />
+          <h3 class="ser-box-title">Technical Consulting</h3>
           <p class="ser-box-info">
-            Web development is the process of building, programming...
+            Offering strategic guidance on data architecture,
+            <span class="dots">...</span>
+            <span class="more-text" style="display: none">
+              project planning, and workflow optimization based on best
+              practices and real-world experience.
+            </span>
           </p>
-          <a href="" class="ser-box-link"
-            >Read more
+          <div class="ser-box-link">
+            Read more
             <img src="./images/right-arrow.png" alt="" class="w-4 light-mode" />
-            <img
-              src="./images/right-arrow-dark.png"
-              alt=""
-              class="w-4 dark-mode"
-          /></a>
+            <img src="./images/right-arrow-dark.png" class="w-4 dark-mode" />
+          </div>
         </div>
       </div>
     </div>
@@ -312,18 +311,19 @@
     <!-- -------my work------- -->
     <div id="work" class="mywork">
       <h4>My portfolio</h4>
-      <h2 class="mywork-title">My latest work</h2>
+      <h2 class="mywork-title">Featured Projects</h2>
       <p class="mywork-intro">
-        Add description. Welcome to my portfolio! Explore a collection of
-        projects showcasing my diverse skill set in full-stack development.
+        A collection of projects that highlight my experience. Each project was
+        built with a focus on clean design, usability, and real-world impact.
       </p>
 
       <div class="mywork-boxes">
         <div
-          class="mywork-project"
+          class="mywork-project inactive"
           style="background-image: url('./images/work-01.jpg')"
         >
           <div class="mywork-project-box">
+            <span class="coming-soon">Coming soon</span>
             <div class="project-info">
               <h2>Frontend project</h2>
               <p>Web Design</p>
@@ -341,7 +341,7 @@
             <div class="mywork-project-box">
               <div class="project-info">
                 <h2>Weather API</h2>
-                <p>Full-Stack</p>
+                <p>Frontend Project</p>
               </div>
               <div class="project-send">
                 <img src="./images/send-icon.png" alt="" class="w-5" />
@@ -367,10 +367,11 @@
           </a>
         </div>
         <div
-          class="mywork-project"
+          class="mywork-project inactive"
           style="background-image: url('./images/work-3.png')"
         >
           <div class="mywork-project-box">
+            <span class="coming-soon">Coming soon</span>
             <div class="project-info">
               <h2>Market Basket</h2>
               <p>Data Analytics</p>
@@ -465,7 +466,7 @@
             >
           </li>
           <li>
-            <a href="https://linkedin.com/in/baljot" target="_blank">GitHub</a>
+            <a href="https://github.com/Baljot101/" target="_blank">GitHub</a>
           </li>
         </ul>
       </div>
